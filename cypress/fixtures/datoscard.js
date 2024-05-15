@@ -6,4 +6,4 @@ const datosCard = {
 },
 };
 
-export default datosCard;
+module.exports = datosCard;

@@ -1,3 +1,4 @@
+import { TIMEOUT } from "../../fixtures/constantes"
 
 Cypress.Commands.add('eliminarProducto', (id) => {
     cy.request({
@@ -50,7 +51,6 @@ Cypress.Commands.add('editarProducto', (id, body) => {
 
 
 Cypress.Commands.add('buscarProducto', (productoId, productoName) => {
-    const TIMEOUT = 60000; 
     cy.get('[data-cy="search-type"]', { timeout: TIMEOUT }).select('ID');
     cy.get('input[data-cy="search-bar"]').clear().type(`${productoId}{enter}`);
     cy.get('[data-cy="name"]', { timeout: TIMEOUT }).should('contain', `${productoName}`);   
@@ -58,7 +58,6 @@ Cypress.Commands.add('buscarProducto', (productoId, productoName) => {
 
 
 Cypress.Commands.add('agregarCarrito', (productoId2) => {
-    const TIMEOUT = 60000;
     cy.get(`[data-cy^="add-to-cart-${productoId2}"]`).click();
     cy.get('[data-cy="closeModal"]').click();
 });

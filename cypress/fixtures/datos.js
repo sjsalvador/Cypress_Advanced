@@ -20,4 +20,4 @@ producto3: {
 },
 };
 
-export default datosProducto;
+module.exports = datosProducto;
